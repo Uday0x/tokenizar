@@ -1,4 +1,4 @@
-// app.js
+// backend/server.js
 import express from "express";
 import cors from "cors";
 
@@ -25,7 +25,7 @@ function getMapping(text) {
   }));
 }
 
-// Tokenize endpoint
+// Tokenize endpoint ko /api/tokenize par set karo
 app.post('/api/tokenize', (req, res) => {
   const { text } = req.body;
   if (!text) {
@@ -37,7 +37,7 @@ app.post('/api/tokenize', (req, res) => {
   });
 });
 
-// Detokenize endpoint
+// Detokenize endpoint ko /api/detokenize par set karo
 app.post('/api/detokenize', (req, res) => {
   const { tokens } = req.body;
   if (!tokens) {
@@ -46,7 +46,8 @@ app.post('/api/detokenize', (req, res) => {
   res.json({ text: tokensToText(tokens) });
 });
 
-const port = 5000;
+// Port ke liye process.env.PORT ya default 5000 ka use karo
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Backend running on port ${port}`);
 });
