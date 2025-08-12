@@ -12,6 +12,7 @@ node_modules*
 # Dependency directories for both projects
 backend/node_modules
 frontend/node_modules
+frontend/public/vite.svg
 
 # Build directories for both projects
 backend/dist
