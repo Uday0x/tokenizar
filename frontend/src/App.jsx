@@ -7,7 +7,7 @@ export default function App({ dark, setDark }) {
   const [decoded, setDecoded] = useState("");
   const [mapping, setMapping] = useState([]);
 
-  // Use a conditional statement to set the API_URL dynamically
+  // Yeh line dynamically URL set karti hai
   const API_URL = window.location.hostname === "localhost"
     ? "http://localhost:5000"
     : "/api";
@@ -26,7 +26,7 @@ export default function App({ dark, setDark }) {
       const data = await response.json();
       setTokens(data.tokens.join(' '));
       setMapping(data.mapping.map(m => ({
-        char: m.char === " " ? "␣" : m.char, // Symbol for space
+        char: m.char === " " ? "␣" : m.char,
         token: m.ascii
       })));
     } catch (error) {
