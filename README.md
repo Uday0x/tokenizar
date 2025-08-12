@@ -21,8 +21,8 @@ A custom tokenizer application built with React and a Node.js/Express backend. T
 
 1.  **Clone the repository**:
     ```bash
-    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
-    cd your-repo-name
+    git clone git@github.com:Uday0x/tokenizar.git
+    cd 
     ```
 2.  **Install dependencies** for both the frontend and backend:
     ```bash
@@ -66,13 +66,3 @@ The backend is an Express server with two main endpoints:
 
 ---
 
-## 👨‍💻 Author
-
-- **Your Name** - [GitHub Profile](https://github.com/your-username)
-- **Email** - your-email@example.com
-
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.

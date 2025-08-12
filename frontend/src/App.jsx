@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import "./index.css";
 
 export default function App({ dark, setDark }) {
-  const [text, setText] = useState("");
-  const [tokens, setTokens] = useState("");
-  const [decoded, setDecoded] = useState("");
-  const [mapping, setMapping] = useState([]);
+  const [text, setText] = useState("");
+  const [tokens, setTokens] = useState("");
+  const [decoded, setDecoded] = useState("");
+  const [mapping, setMapping] = useState([]);
 
-  // Yeh line dynamically URL set karti hai
-  const API_URL = window.location.hostname === "localhost"
-    ? "http://localhost:5000"
-    : "/api";
+  // Yeh line dynamically URL set karti hai
+  const API_URL = window.location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "/api";
 
-  // Tokenize function to call the backend API
-  const handleTokenize = async () => {
+ const handleTokenize = async () => {
     if (!text.trim()) return;
     try {
       const response = await fetch(`${API_URL}/tokenize`, {
@@ -26,7 +25,7 @@ export default function App({ dark, setDark }) {
       const data = await response.json();
       setTokens(data.tokens.join(' '));
       setMapping(data.mapping.map(m => ({
-        char: m.char === " " ? "␣" : m.char,
+        char: m.char === " " ? "␣" : m.char, // Symbol for space
         token: m.ascii
       })));
     } catch (error) {
@@ -103,6 +102,7 @@ export default function App({ dark, setDark }) {
       {/* Mapping Section */}
       <div className={`mt-6 p-4 rounded-lg ${dark ? "bg-gray-900" : "bg-gray-100"}`}>
         <h2 className="text-orange-500 font-bold text-lg mb-0">Character ↔ Token Mapping</h2>
+        {/* यह नई लाइन है जो मैपिंग के बारे में बताती है */}
         <p className={`text-sm mb-3 ${dark ? "text-gray-400" : "text-gray-600"}`}>
           (ASCII Character Mapping)
         </p>
