@@ -6,7 +6,11 @@ export default function App({ dark, setDark }) {
   const [tokens, setTokens] = useState("");
   const [decoded, setDecoded] = useState("");
   const [mapping, setMapping] = useState([]);
-  const API_URL = "/api"; // Vercel deployment ke liye sahi API URL
+
+  // Use a conditional statement to set the API_URL dynamically
+  const API_URL = window.location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "/api";
 
   // Tokenize function to call the backend API
   const handleTokenize = async () => {
