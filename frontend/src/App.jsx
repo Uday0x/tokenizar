@@ -6,8 +6,7 @@ export default function App({ dark, setDark }) {
   const [tokens, setTokens] = useState("");
   const [decoded, setDecoded] = useState("");
   const [mapping, setMapping] = useState([]);
-  const API_URL = "http://localhost:5000"; //can use env here doing it directly
-  
+  const API_URL = "/api"; // Vercel deployment ke liye sahi API URL
 
   // Tokenize function to call the backend API
   const handleTokenize = async () => {
@@ -99,7 +98,10 @@ export default function App({ dark, setDark }) {
 
       {/* Mapping Section */}
       <div className={`mt-6 p-4 rounded-lg ${dark ? "bg-gray-900" : "bg-gray-100"}`}>
-        <h2 className="text-orange-500 font-bold text-lg mb-3">Character ↔ Token Mapping</h2>
+        <h2 className="text-orange-500 font-bold text-lg mb-0">Character ↔ Token Mapping</h2>
+        <p className={`text-sm mb-3 ${dark ? "text-gray-400" : "text-gray-600"}`}>
+          (ASCII Character Mapping)
+        </p>
         <div className="flex flex-wrap gap-2">
           {mapping.map((m, idx) => (
             <div key={idx} className={`px-3 py-1 rounded ${dark ? "bg-black" : "bg-gray-200"}`}>

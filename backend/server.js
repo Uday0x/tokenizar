@@ -26,7 +26,7 @@ function getMapping(text) {
 }
 
 // Tokenize endpoint
-app.post('/tokenize', (req, res) => {
+app.post('/api/tokenize', (req, res) => {
   const { text } = req.body;
   if (!text) {
     return res.json({ tokens: [], mapping: [] });
@@ -38,7 +38,7 @@ app.post('/tokenize', (req, res) => {
 });
 
 // Detokenize endpoint
-app.post('/detokenize', (req, res) => {
+app.post('/api/detokenize', (req, res) => {
   const { tokens } = req.body;
   if (!tokens) {
     return res.json({ text: '' });
